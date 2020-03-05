@@ -4,12 +4,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
 
-    <h2>@Model.Result.title</h2>
-    <img src="@Model.Result.img" alt="@Model.Result.alt" />
-    <p>@Model.Result.alt</p>
+<div class="card card-user">
+    <div class="card-header">
+        <h5 class="card-title">@Model.Result.title</h5>
+    </div>
+    <div class="card-body">
+        <img height="350" width="500" src="@Model.Result.img" alt="@Model.Result.alt" />
+        <p>@Model.Result.alt</p>
 
-    <a asp-route-id="@Model.Result.PrevPage" asp-controller="WebComic" class="btn btn-link">Previous</a>
+        <div class="row">
+            <div class="update ml-auto mr-auto">
+                <a asp-route-id="@Model.Result.PrevPage" asp-controller="WebComic" class="btn btn-primary btn-round">Previous</a>
 
+            </div>
+        </div>
+
+    </div>
 </div>
