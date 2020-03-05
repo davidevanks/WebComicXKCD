@@ -38,6 +38,8 @@ namespace WebComicXKCD.BLL
 
         public async Task<ComicVM> PreviousPage(int NumPage)
         {
+
+            NumPage = NumPage == 404 ? NumPage + 2 : NumPage;
             ComicVM WebComic = new ComicVM();
             ComicVM WebComicActual = new ComicVM();
             using (var httpClient = new HttpClient())
@@ -57,9 +59,10 @@ namespace WebComicXKCD.BLL
                     WebComic = JsonConvert.DeserializeObject<ComicVM>(json);
 
 
+
                     WebComic.maxComic = WebComicActual.num;
-                    WebComic.PrevPage = WebComic.num - 1;
-                    WebComic.NextPage = WebComic.num + 1;
+                    WebComic.PrevPage = WebComic.num == 405 ? WebComic.num - 2 : WebComic.num - 1;
+                    WebComic.NextPage = WebComic.num == 403 ? WebComic.num + 2 : WebComic.num + 1;
 
 
                 }
