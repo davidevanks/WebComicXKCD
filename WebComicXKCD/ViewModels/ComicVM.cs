@@ -10,9 +10,13 @@ namespace WebComicXKCD.ViewModels
         public string alt { get; set; }
         public string img { get; set; }
         public int num { get; set; }
-       
-        public string title { get; set; }
-      
 
+        public string title { get; set; }
+
+        public int NextPage { get; set; }
+
+        public int PrevPage { get; set; }
+
+        public int maxComic { get; set; }
     }
 }

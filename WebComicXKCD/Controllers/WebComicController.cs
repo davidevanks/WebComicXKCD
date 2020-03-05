@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebComicXKCD.BLL;
+using WebComicXKCD.ViewModels;
 
 namespace WebComicXKCD.Controllers
 {
@@ -17,11 +18,13 @@ namespace WebComicXKCD.Controllers
             _webComic = webComicA;
         }
 
-        [HttpGet("Comic/{id}")]
+        [HttpGet("comic/{id}")]
         public IActionResult Index(int id)
         {
-           
-            return View();
+
+            Task<ComicVM> res;
+            res = _webComic.PreviousPage(id);
+            return View(res);
         }
     }
 }

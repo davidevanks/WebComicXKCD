@@ -1,0 +1,35 @@
+﻿@model Task<WebComicXKCD.ViewModels.ComicVM>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+
+    <h2>@Model.Result.title</h2>
+    <img src="@Model.Result.img" alt="@Model.Result.alt" />
+    <p>@Model.Result.alt</p>
+
+
+
+    @if (Model.Result.num > 1)
+    {
+
+        <a asp-route-id="@Model.Result.PrevPage" asp-controller="WebComic" class="btn btn-link">Previous Comic</a>
+    }
+
+    @if (Model.Result.NextPage < Model.Result.maxComic)
+    {
+        <a asp-route-id="@Model.Result.NextPage" asp-controller="WebComic" class="btn btn-link">Next Comic</a>
+    }
+    else
+    {
+        <a asp-controller="Home" class="btn btn-link">Next Comic</a>
+    }
+
+
+
+
+
+
+</div>

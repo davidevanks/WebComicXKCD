@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using WebComicXKCD.ViewModels;
 namespace WebComicXKCD.BLL
 {
-   public interface IWebComic
+    public interface IWebComic
     {
         public Task<ComicVM> ActualComic();
+
+        public Task<ComicVM> PreviousPage(int NumPage);
     }
 }
